@@ -82,8 +82,26 @@ public class TicTacToeModel {
     public boolean makeMark(int row, int col) {
         
         // INSERT YOUR CODE HERE
+         boolean markMade = false;
+
+        if( (isValidSquare(row, col)) && (!isSquareMarked(row, col)) ) 
+        {
+            if(xTurn) 
+            {
+                board[row][col] = TicTacToeSquare.X;
+                xTurn = false;
+            }
+            else 
+            {
+                board[row][col] = TicTacToeSquare.O;
+                xTurn = true;
+            }
+
+            markMade = true;
+        }
+        return markMade;
         
-        return false; // this is a stub; you may need to remove it later!
+        //return false; // this is a stub; you may need to remove it later!
         
     }
     
@@ -99,8 +117,15 @@ public class TicTacToeModel {
     private boolean isValidSquare(int row, int col) {
         
         // INSERT YOUR CODE HERE
+         boolean isValidSquare = false;
+
+        if( (row >= 0 && row < dimension) && (col >= 0 && col < dimension) ) 
+        {
+                isValidSquare = true;
+        }
+        return isValidSquare;
         
-        return false; // this is a stub; you may need to remove it later!
+       // return false; // this is a stub; you may need to remove it later!
         
     }
     
@@ -115,8 +140,18 @@ public class TicTacToeModel {
     private boolean isSquareMarked(int row, int col) {
                 
         // INSERT YOUR CODE HERE
+
         
-        return false; // this is a stub; you may need to remove it later!
+        boolean isSquareMarked = false;
+
+        if( (getSquare(row, col) == TicTacToeSquare.X) || (getSquare(row, col) == TicTacToeSquare.O) )
+         {
+                isSquareMarked = true;
+        }
+        return isSquareMarked;
+
+        
+        //return false; // this is a stub; you may need to remove it later!
             
     }
     
@@ -132,8 +167,9 @@ public class TicTacToeModel {
     public TicTacToeSquare getSquare(int row, int col) {
         
         // INSERT YOUR CODE HERE
+        return board[row][col];
         
-        return null; // this is a stub; you should remove it later!
+        //return null; // this is a stub; you should remove it later!
             
     }
     
@@ -148,8 +184,20 @@ public class TicTacToeModel {
     public TicTacToeState getState() {
         
         // INSERT YOUR CODE HERE
-        
-        return null; // this is a stub; you should remove it later!
+
+         
+        if(isMarkWin(TicTacToeSquare.X))
+            return TicTacToeState.X;
+
+        else if(isMarkWin(TicTacToeSquare.O))
+            return TicTacToeState.O;
+
+        else if(isTie())
+            return TicTacToeState.TIE;
+
+        else
+            return TicTacToeState.NONE;
+        //return null; // this is a stub; you should remove it later!
         
     }
     
@@ -164,8 +212,65 @@ public class TicTacToeModel {
     private boolean isMarkWin(TicTacToeSquare mark) {
         
         // INSERT YOUR CODE HERE
+
+
+        boolean Markwins = true;
+
+         // Horizontal row
+            for ( int row = 0; row < dimension; row++ ) 
+            {
+                Markwins = true;
+                for ( int col = 0; col < dimension; col++ ) {
+                    if( board[row][col] != mark ) {
+                        Markwins = false;
+                    }
+                }
+                if ( Markwins ) {
+                    return true;
+                }
+            }
+            // Vertical column
+            for( int col = 0; col < dimension; col++ ) 
+            {
+                Markwins = true;
+                for( int row = 0; row < dimension; ++row ) {
+                    if ( board[row][col] != mark ) {
+                        Markwins = false;
+                    }
+                }
+                if ( Markwins ) {
+                    return true;
+                }
+            }
+            
+            // Left to Right diagonal
+            Markwins = true;    
+            for ( int i = 0; i < dimension; i++ ) 
+            {
+                if ( board[i][dimension - i - 1] != mark ) {
+                    Markwins = false;
+                }
+            }
+            if ( Markwins ) {
+                return true;
+            }
+
+
+            // Right to left diagonal
+            Markwins = true;
+            for ( int i = 0; i < dimension; i++ ) {
+                
+                if( board[i][i] != mark ){
+                    Markwins = false;
+                }
+            }
+            if ( Markwins ) {
+                return true;
+            }
+
+        return Markwins;
         
-        return false; // this is a stub; you may need to remove it later!
+        //return false; // this is a stub; you may need to remove it later!
         
     }
     
@@ -178,8 +283,20 @@ public class TicTacToeModel {
     private boolean isTie() {
         
         // INSERT YOUR CODE HERE
+
+        for ( int i = 0; i < dimension; i++ ) 
+        {
+            for ( int j = 0; j < dimension; j++ )
+             {
+                if ( board[i][j] == TicTacToeSquare.EMPTY )
+                    return false;
+                }
+        }
         
-        return false; // this is a stub; you may need to remove it later!
+        return true;
+        
+        
+        //return false; // this is a stub; you may need to remove it later!
         
     }
 
@@ -236,6 +353,35 @@ public class TicTacToeModel {
         StringBuilder output = new StringBuilder();
         
         // INSERT YOUR CODE HERE
+         
+        
+        output.append("\n"); 
+        output.append("  ");  
+
+         
+        for (int col = 0; col<dimension; col++)
+        {
+            output.append(column);
+        }
+
+        output.append("\n");
+
+         
+        for(int row=0; row<dimension; row++)
+        {
+            output.append(row).append(" "); 
+
+            for (int col=0; col<dimension; col++)
+            {
+            
+                output.append(board[row][col].toString()); 
+            }
+            output.append("\n"); 
+        }
+
+        output.append("\n"); 
+
+     
         
         return output.toString();
         
