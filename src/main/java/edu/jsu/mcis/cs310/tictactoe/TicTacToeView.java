@@ -39,9 +39,9 @@ public class TicTacToeView {
     */
     public TicTacToeMove getNextMove(boolean isXTurn) {
         
-        // INSERT YOUR CODE HERE (refer to the example output on Canvas!)
          
-	    
+         
+	     
         if(isXTurn) {
             System.out.println("Player 1 (X) move:");
         }
@@ -56,7 +56,7 @@ public class TicTacToeView {
 		
         return move;
         
-        //return null; // this is a stub; you should remove it later!
+        
 
     }
     

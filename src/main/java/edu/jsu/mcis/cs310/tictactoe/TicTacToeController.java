@@ -45,7 +45,7 @@ public class TicTacToeController {
     
         /* MAIN LOOP (repeats until game is over) */
 
-        // INSERT YOUR CODE HERE
+        
 
          while(!model.isGameover())
         
@@ -62,7 +62,7 @@ public class TicTacToeController {
             }
         
          }
-        }
+        
         
         /* Display Results and Exit */
 
@@ -71,5 +71,5 @@ public class TicTacToeController {
         view.showResult(model.getState().toString());
         
     }
-
 }
+

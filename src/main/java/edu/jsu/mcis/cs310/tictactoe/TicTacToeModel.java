@@ -52,7 +52,7 @@ public class TicTacToeModel {
 
         /* Initialize board (fill with TicTacToeSquare.EMPTY) */
         
-        // INSERT YOUR CODE HERE
+        
          for(int row = 0; row < dimension; row++)
          {
             
@@ -81,7 +81,7 @@ public class TicTacToeModel {
     */
     public boolean makeMark(int row, int col) {
         
-        // INSERT YOUR CODE HERE
+        
          boolean markMade = false;
 
         if( (isValidSquare(row, col)) && (!isSquareMarked(row, col)) ) 
@@ -101,7 +101,7 @@ public class TicTacToeModel {
         }
         return markMade;
         
-        //return false; // this is a stub; you may need to remove it later!
+       
         
     }
     
@@ -115,8 +115,7 @@ public class TicTacToeModel {
     * if it is not
     */
     private boolean isValidSquare(int row, int col) {
-        
-        // INSERT YOUR CODE HERE
+         
          boolean isValidSquare = false;
 
         if( (row >= 0 && row < dimension) && (col >= 0 && col < dimension) ) 
@@ -125,7 +124,7 @@ public class TicTacToeModel {
         }
         return isValidSquare;
         
-       // return false; // this is a stub; you may need to remove it later!
+       
         
     }
     
@@ -139,8 +138,7 @@ public class TicTacToeModel {
     */
     private boolean isSquareMarked(int row, int col) {
                 
-        // INSERT YOUR CODE HERE
-
+        
         
         boolean isSquareMarked = false;
 
@@ -151,7 +149,7 @@ public class TicTacToeModel {
         return isSquareMarked;
 
         
-        //return false; // this is a stub; you may need to remove it later!
+        
             
     }
     
@@ -166,11 +164,10 @@ public class TicTacToeModel {
     */
     public TicTacToeSquare getSquare(int row, int col) {
         
-        // INSERT YOUR CODE HERE
+         
         return board[row][col];
         
-        //return null; // this is a stub; you should remove it later!
-            
+         
     }
     
     /**
@@ -183,7 +180,7 @@ public class TicTacToeModel {
     */
     public TicTacToeState getState() {
         
-        // INSERT YOUR CODE HERE
+         
 
          
         if(isMarkWin(TicTacToeSquare.X))
@@ -196,9 +193,7 @@ public class TicTacToeModel {
             return TicTacToeState.TIE;
 
         else
-            return TicTacToeState.NONE;
-        //return null; // this is a stub; you should remove it later!
-        
+            return TicTacToeState.NONE; 
     }
     
     /**
@@ -211,7 +206,7 @@ public class TicTacToeModel {
     */
     private boolean isMarkWin(TicTacToeSquare mark) {
         
-        // INSERT YOUR CODE HERE
+        
 
 
         boolean Markwins = true;
@@ -269,9 +264,7 @@ public class TicTacToeModel {
             }
 
         return Markwins;
-        
-        //return false; // this is a stub; you may need to remove it later!
-        
+         
     }
     
     /**
@@ -282,7 +275,7 @@ public class TicTacToeModel {
     */	
     private boolean isTie() {
         
-        // INSERT YOUR CODE HERE
+        
 
         for ( int i = 0; i < dimension; i++ ) 
         {
@@ -296,7 +289,7 @@ public class TicTacToeModel {
         return true;
         
         
-        //return false; // this is a stub; you may need to remove it later!
+         
         
     }
 
@@ -352,34 +345,26 @@ public class TicTacToeModel {
         
         StringBuilder output = new StringBuilder();
         
-        // INSERT YOUR CODE HERE
-         
         
-        output.append("\n"); 
-        output.append("  ");  
-
          
-        for (int col = 0; col<dimension; col++)
-        {
-            output.append(column);
-        }
-
         output.append("\n");
-
-         
-        for(int row=0; row<dimension; row++)
-        {
-            output.append(row).append(" "); 
-
-            for (int col=0; col<dimension; col++)
-            {
-            
-                output.append(board[row][col].toString()); 
-            }
-            output.append("\n"); 
+        output.append("  ");
+        /* Output the board contents as a string (see examples) */
+        
+        for (int i = 0; i < dimension; i++) {
+            output.append(i);
         }
-
-        output.append("\n"); 
+        
+        output.append("\n");
+        
+        for (int row =0; row < dimension; row++){
+            output.append(row).append(" ");
+            for (int col = 0; col < dimension; col++) {
+                output.append( (board[row][col].toString()) );
+            }
+            output.append("\n");
+        }
+        output.append("\n");
 
      
         
