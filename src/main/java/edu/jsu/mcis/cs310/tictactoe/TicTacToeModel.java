@@ -136,10 +136,9 @@ public class TicTacToeModel {
     * @return      a Boolean value: true if the square is marked, and false
     * if it is not
     */
-    private boolean isSquareMarked(int row, int col) {
-                
-        
-        
+    private boolean isSquareMarked(int row, int col)
+     {
+                 
         boolean isSquareMarked = false;
 
         if( (getSquare(row, col) == TicTacToeSquare.X) || (getSquare(row, col) == TicTacToeSquare.O) )
@@ -147,10 +146,7 @@ public class TicTacToeModel {
                 isSquareMarked = true;
         }
         return isSquareMarked;
-
-        
-        
-            
+      
     }
     
     /**
@@ -162,12 +158,10 @@ public class TicTacToeModel {
     * @return      the content of the specified square
     * @see         TicTacToeSquare
     */
-    public TicTacToeSquare getSquare(int row, int col) {
-        
-         
+    public TicTacToeSquare getSquare(int row, int col) 
+    {
         return board[row][col];
-        
-         
+     
     }
     
     /**
@@ -178,11 +172,9 @@ public class TicTacToeModel {
     * @return      the current state of the Tic-Tac-Toe game
     * @see         TicTacToeState
     */
-    public TicTacToeState getState() {
-        
-         
-
-         
+    public TicTacToeState getState() 
+    {
+          
         if(isMarkWin(TicTacToeSquare.X))
             return TicTacToeState.X;
 
@@ -204,11 +196,9 @@ public class TicTacToeModel {
     * @return       true if the specified player is the winner, or false if not
     * @see          TicTacToeSquare
     */
-    private boolean isMarkWin(TicTacToeSquare mark) {
+    private boolean isMarkWin(TicTacToeSquare mark)
+     {
         
-        
-
-
         boolean Markwins = true;
 
          // Horizontal row
@@ -273,10 +263,9 @@ public class TicTacToeModel {
     *
     * @return  true if the game is currently a tie, or false otherwise
     */	
-    private boolean isTie() {
+    private boolean isTie()
+     {
         
-        
-
         for ( int i = 0; i < dimension; i++ ) 
         {
             for ( int j = 0; j < dimension; j++ )
@@ -287,10 +276,7 @@ public class TicTacToeModel {
         }
         
         return true;
-        
-        
-         
-        
+            
     }
 
     /**
@@ -344,10 +330,8 @@ public class TicTacToeModel {
     public String toString() {
         
         StringBuilder output = new StringBuilder();
-        
-        
-         
-        output.append("\n");
+
+        //output.append("\n");
         output.append("  ");
         /* Output the board contents as a string (see examples) */
         
