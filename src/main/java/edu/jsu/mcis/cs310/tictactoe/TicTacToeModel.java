@@ -53,6 +53,16 @@ public class TicTacToeModel {
         /* Initialize board (fill with TicTacToeSquare.EMPTY) */
         
         // INSERT YOUR CODE HERE
+         for(int row = 0; row < dimension; row++)
+         {
+            
+            for(int col = 0; col < dimension; col++)
+             {
+                
+                board[row][col] = TicTacToeSquare.EMPTY;
+            }
+        
+        }
         
     }
     /**
