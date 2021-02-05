@@ -3,7 +3,7 @@ package edu.jsu.mcis.cs310.tictactoe;
 /**
 * TicTacToeModel implements the Model for the Tic-Tac-Toe game.
 *
-* @author  Your Name
+* @author  Apeksha Dahal
 * @version 1.0
 */
 public class TicTacToeModel {
